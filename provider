@@ -1,1 +1,28 @@
 
+terraform {
+  required_providers {
+    aws = {
+      # Specifies the source location of the AWS provider plugin
+      source  = "hashicorp/aws" 
+      # Sets the version constraint for the AWS provider plugin
+      version = "~> 5.4.0" 
+    }
+  }
+}
+
+
+resource "aws_instance" "PALO_ALTO" {
+  ami = "ami-02fa654aa5ac0bc40"
+  instance_type = "m5.2xlarge"
+  availability_zone = "us-east-1a"
+  key_name = "ssh"
+  root_block_device {
+    delete_on_termination = true
+  }
+  metadata_options {
+        http_tokens  = "required"
+    }
+  tags = {
+    Name ="Firewall"
+  }
+}
