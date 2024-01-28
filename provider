@@ -1,28 +1,6 @@
-
-terraform {
-  required_providers {
-    aws = {
-      # Specifies the source location of the AWS provider plugin
-      source  = "hashicorp/aws" 
-      # Sets the version constraint for the AWS provider plugin
-      version = "~> 5.4.0" 
-    }
-  }
+provider "aws" {
+  region     = "us-east-1"
+  access_key = "ASIAY6574OZKEQMBMFSI"
+  secret_key = "IQoJb3JpZ2luX2VjECMaCXVzLWVhc3QtMSJIMEYCIQD0d7xQ28BYFgnK5KrlPnGMimFg7fhpntXF8oqs2520vgIhAMQDzA3J6GPdAhl8ljXPof2BcqmLrRapXOUtbN6NacHhKvICCNz//////////wEQABoMNjE2MTkzMzU3Mzk2IgzGUCLVrQ8W6UcRdTEqxgJpP40RXovFvxlLjSGBYehOiDtd9sgxTM99ukJMRYzrtUzNyh9Mkwg6BD59KjJNxqTne7UlPKos/DYtnIr0P3O+qQFbCTZAhbUb9Eis24DiRm2Z6udiUuvUCsooCi0AKxeCRXsHcIBFi/BZZKqs7Db5A9rWnNh1uGgc8tbiTCcnNPMS5MvTLZ6fRiDehrIh3kuO82mnPWMnLbKNd4Et/qob9ediubw0VFglLrRCGueggibBzI08lck/PJ+OUc3eGawzyoiURE87D3OgxitPlMxi8H6qQXspQjkY+0otXc+cxDPexhpGBHEfkIV9kaPLBYX9/poKXxlP+iypmSG/Fi77OI8btrLjMlnDpCDV1EAO4MvP/1TETx9mpi2LMW9MmV2Ss/HGlCICeUtSAQALFZXD0IBYdWR8vzw3d2Pf2z2VlBShxTQ+vTCxwtqtBjqmAQtnALWv6a3XMpSoRRc45I5efe1UVLGm4uVAVfTRwZAtGj29xsXiOis2iSVmsM+z56JI+gK0LdktPqBlCAz/oG8mz5PVmN8735qn6wqpkBe6IjKzGvvPH1LF9uEQ4TO23w3ewwRMm/j8VlcR3fy3lqdjIi2UtBtt8EQ81M9CyPEZFGYLCzLwwTfzM70HE2NYscIj2oh8ZcSmNHE/Lb5TaO7XWygv47Y="
 }
-
-
-resource "aws_instance" "PALO_ALTO" {
-  ami = "ami-02fa654aa5ac0bc40"
-  instance_type = "m5.2xlarge"
-  availability_zone = "us-east-1a"
-  key_name = "ssh"
-  root_block_device {
-    delete_on_termination = true
-  }
-  metadata_options {
-        http_tokens  = "required"
-    }
-  tags = {
-    Name ="Firewall"
-  }
-}
+ 
